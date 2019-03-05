@@ -1,0 +1,15 @@
+clc;clear all;
+a=imread('Image A.jpg');
+b=imread('Image B.jpg');
+figure;
+subplot(1,2,1)
+imshow(a);
+subplot(1,2,2)
+imshow(b)
+
+cpselect(a,b);
+tform=cp2tform(base_points,input_points,'affine'); 
+out=imtransform(b,tform); 
+figure 
+subplot(1,2,1),imshow(out); title('Image B');
+subplot(1,2,2),imshow(a); title('Image A');
